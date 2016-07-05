@@ -647,6 +647,7 @@ minioClient.removeObject('mybucket', 'photo.jpg', function(err) {
 Removes a partially uploaded object.
 
 __Parameters__
+
 | Param  |  Type | Description  |
 |---|---|---|
 | `bucketName`  |_string_   | Name of the bucket.  |
