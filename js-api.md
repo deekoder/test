@@ -590,7 +590,7 @@ __Parameters__
           </tr>       
         <tr>
          <td>
-           function
+           callback(err, stat)
             </td>
             <td>
             function
