@@ -30,9 +30,9 @@ var s3Client = new Minio({
 | [`makeBucket`](#makeBucket)    | [`getObject`](#getObject) | [`presignedGetObject`](#presignedGetObject) |
 | [`listBuckets`](#listBuckets)  | [`getPartialObject`](#getPartialObject)    |   [`presignedPutObject`](#presignedPutObject) |
 | [`bucketExists`](#bucketExists) | [`fGetObject`](#fGetObject)    |    [`presignedPostPolicy`](#presignedPostPolicy) |
-| [`removeBucket`](#removeBucket)      | [`putObject`](#putObject)       | 
-| [`listObjects`](#listObjects) | [`fPutObject`](#fPutObject)   | 
-| [`listIncompleteUploads`](#listIncompleteUploads) |[`statObject`](#statObject) | 
+| [`removeBucket`](#removeBucket)      | [`putObject`](#putObject)       |
+| [`listObjects`](#listObjects) | [`fPutObject`](#fPutObject)   |
+| [`listIncompleteUploads`](#listIncompleteUploads) |[`statObject`](#statObject) |
 |     |  [`removeObject`](#removeObject)    |
 |  | [`removeIncompleteUpload`](#removeIncompleteUpload)  |
 
@@ -41,20 +41,70 @@ var s3Client = new Minio({
 <a name="MinioClient_endpoint">
 ####  new Minio ({endPoint, port, secure, accessKey, secretKey})
 
-|     | 
-| ---- | 
+|     |
+| ---- |
 |``new Minio ({endPoint, port, secure, accessKey, secretKey})``|
 |Initializes a new client object.|
 
 __Parameters__
 
-|Param | Type| Description |
-| --- | --- | --|
-| `endPoint` | _string_ |INSERT HERE|
-| `port` |_string_   |TCP/IP port number. This input is optional. Default value set to 80 for HTTP and 443 for HTTPs. |
-|`accessKey` | _string_| accessKey is like user-id that uniquely identifies your account. | 
-| `secretKey` | _string_ | secretKey is the password to your account. |
-| `secure` | _bool_ | If set to true, https is used instead of http. Default is https if not set. | 
+<table>
+    <thead>
+        <tr>
+            <th>Param</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+           endPoint
+            </td>
+            <td>
+            string
+            </td>
+            <td>
+            endPoint is an URL, domain name, IPv4 or IPv6 address.
+Valid endpoints:
+                <ul>
+                    <li>https://s3.amazonaws.com</li>
+                    <li>https://s3.amazonaws.com/</li>
+                    <li>https://play.minio.io:9000</li>
+                    <li>http://play.minio.io:9010/</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+         <td>
+           port
+            </td>
+            <td>
+            string
+            </td>
+            <td>
+            TCP/IP port number. This input is optional. Default value set to 80 for HTTP and 443 for HTTPs.
+            </td>
+        </tr>
+        <tr>
+        <td>accessKey</td>
+        <td>string</td>
+        <td>accessKey is like user-id that uniquely identifies your account.</td>
+        </tr>
+        <tr>
+        <td>secretKey </td>
+        <td> string</td>
+        <td> secretKey is the password to your account.</td>
+        </tr>
+        <tr>
+        <td>secure </td>
+        <td> bool</td>
+        <td>If set to true, https is used instead of http. Default is https if not set. </td>
+        </tr>
+    </tbody>
+</table>
+
+
 
 __Example__
 
@@ -89,11 +139,48 @@ Creates a new bucket.
 
 __Parameters__
 
- |  Param | Type   | Description  |
-|---|---|---|
-|`bucketName`   | _string_   | Name of the bucket.  |
-|`region`   | _string_  | INSERT HERE  |
-| `callback(err)`   | _function_  | Callback function with `err` as the error argument. `err` is null if the bucket is successfully created.  |
+<table>
+    <thead>
+        <tr>
+            <th>Param</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+           bucketName
+            </td>
+            <td>
+            string
+            </td>
+            <td>
+            Name of the bucket.
+            </td>
+        </tr>
+        <tr>
+         <td>
+           region
+            </td>
+            <td>
+            string
+            </td>
+            <td>
+            Default value is us-east-1
+Region where the bucket is created. Valid values are [ us-east-1, us-west-1, us-west-2, eu-west-1, eu-central-1, ap-southeast-1, ap-northeast-1,
+ap-southeast-2, sa-east-1 ].
+            </td>
+        </tr>
+        <tr>
+        <td>callback(err) </td>
+        <td>function </td>
+        <td>Callback function with err as the error argument. err is null if the bucket is successfully created. </td>
+        </tr>
+    </tbody>
+</table>
+
+
 
 __Example__
 
@@ -110,9 +197,37 @@ Lists all buckets.
 
 __Parameters__
 
-| Param  | Type| Description  |
-|---|---|---|
-| `callback(err, *bucketStream*)`  | _function_  | INSERT HERE |
+<table>
+    <thead>
+        <tr>
+            <th>Param</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+           callback(err, bucketStream)
+            </td>
+            <td>
+            function
+            </td>
+            <td>
+            Callback function with error as the first argument.
+  bucketStream is the stream emitting bucket information.
+  bucketStream emits Object with the format:-
+                <ul>
+                    <li>bucket.name string : bucket name</li>
+                    <li>bucket.creationDate Date: date when bucket was created.</li>
+
+                </ul>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+
 
 __Example__
 
@@ -165,16 +280,47 @@ minioClient.removeBucket('mybucket', function(err) {
 Lists all objects in a bucket.
 
 __Parameters__
-| Param  |  Type | Description  |
-|---|---|---|
-| `bucketName`  | _string_  |  Name of the bucket. |
+
+| Param | Type | Description |
+| ---- | ---- | ---- |
+| `bucketName` | _string_ | Name of the bucket. |
 | `prefix`  | _string_  |  The prefix of the objects that should be listed (optional, default `''`). |
 | `recursive`  | _bool_  | `true` indicates recursive style listing and `false` indicates directory style listing delimited by '/'. (optional, default `false`).  |
 
+
 __Return Value__
-| Param  |  Type | Description  |
-|---|---|---|
-| `stream`  | _Stream_  |  INSERT HERE  |
+
+<table>
+    <thead>
+        <tr>
+            <th>Param</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+           stream
+            </td>
+            <td>
+            Stream
+            </td>
+            <td>
+            Stream emitting the objects in the bucket, the object is of the format:
+                <ul>
+                    <li>obj.key string: name of the object.</li>
+                    <li>obj.size number: size of the object.</li>
+                    <li>obj.etag string: etag of the object.</li>
+                    <li>obj.lastModified Date: modified time stamp.</li>
+                </ul>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+
+
 
 __Example__
 ```js
@@ -189,16 +335,44 @@ stream.on('error', function(err) { console.log(err) } )
 Lists partially uploaded objects in a bucket.
 
 __Parameters__
+
 | Param  |  Type | Description  |
-|---|---|---|
+| ---| ---|---|
 | `bucketname`  | _string_  |  Name of the bucket. |
 | `prefix`  | _string_  | Prefix of the object names that are partially uploaded. (optional, default `''`)  |
 | `recursive`  | _bool_  | `true` indicates recursive style listing and `false` indicates directory style listing delimited by '/'. (optional, default `false`).  |
 
 __Return Value__
-| Param  |  Type | Description  |
-|---|---|---|
-| `stream`  | _Stream_   | INSERT   |
+
+<table>
+    <thead>
+        <tr>
+            <th>Param</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+           stream
+            </td>
+            <td>
+          Stream
+            </td>
+            <td>
+            Emits objects of the format:
+
+                <ul>
+                    <li>part.key string: name of the object.</li>
+                    <li>part.uploadId string: upload ID of the object.</li>
+                    <li>part.size Integer: size of the partially uploaded object.</li>
+                </ul>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
 
 __Example__
 ```js
@@ -220,6 +394,7 @@ Stream.on('error', function(err) {
 Downloads an object as a stream.
 
 __Parameters__
+
 | Param  |  Type | Description  |
 |---|---|---|
 | `bucketName`  | _string_  | Name of the bucket.  |
@@ -318,7 +493,7 @@ __Parameters__
 | `objectName`  |_string_   | Name of the object.  |
 | `stream`  | _Stream_  |Readable stream.   |
 |`size`   | _number_  | Size of the object.  |
-|`contentType`   | _string_  | Content-Type of the object (optional, default `application/octet-stream`).  | 
+|`contentType`   | _string_  | Content-Type of the object (optional, default `application/octet-stream`).  |
 | `callback(err, etag)` | _function_ | Non-null `err` indicates error, `etag` _string_ is the etag of the object uploaded.|
 
 __Example__
@@ -346,7 +521,7 @@ __Parameters__
 | `objectName`  |_string_   | Name of the object.  |
 |`string or Buffer`   | _Stream_ or _Buffer_  |Readable stream.   |
 | `contentType`  | _string_   | Content-Type of the object (optional, default `application/octet-stream`).  |
-| `callback(err, etag)`  | _function_  |Non-null `err` indicates error, `etag` _string_ is the etag of the object uploaded.   | 
+| `callback(err, etag)`  | _function_  |Non-null `err` indicates error, `etag` _string_ is the etag of the object uploaded.   |
 
 __Example__
 ```js
@@ -368,7 +543,7 @@ __Parameters__
 |`objectName`   |_string_   | Name of the object.  |
 | `filePath`  | _string_  | Path of the file to be uploaded.  |
 | `contentType`  | _string_  | Content-Type of the object.  |
-| `callback(err, etag)`  |  _function_ | Non-null `err` indicates error, `etag` _string_ is the etag of the object uploaded.  | 
+| `callback(err, etag)`  |  _function_ | Non-null `err` indicates error, `etag` _string_ is the etag of the object uploaded.  |
 
 __Example__
 
@@ -386,11 +561,54 @@ minioClient.fPutObject('mybucket', '40mbfile', file, 'application/octet-stream',
 Gets metadata of an object.
 
 __Parameters__
-| Param  |  Type | Description  |
-|---|---|---|
-|`bucketName`   | _string_  | Name of the bucket.  |
-| `objectName`  | _string_  |  Name of the object. |
-| `callback(err, stat)`  | _function_  | INSERT HERE  |
+
+<table>
+    <thead>
+        <tr>
+            <th>Param</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+           bucketName
+            </td>
+            <td>
+            string
+            </td>
+            <td>
+            Name of the bucket.
+            </td>
+           </tr>
+          <tr>
+
+          <td>objectName</td>
+          <td>string</td>
+          <td>Name of the object.</td>
+          </tr>       
+        <tr>
+         <td>
+           function
+            </td>
+            <td>
+            function
+            </td>
+
+            <td>
+            err is not null in case of error, stat contains the object information:
+                <ul>
+                    <li>stat.size number: size of the object.</li>
+                    <li>stat.etag string: etag of the object.</li>
+                    <li>stat.contentType string: Content-Type of the object.</li>
+                    <li>stat.lastModified string: modified time stamp.</li>
+                </ul>
+            </td>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 __Example__
 ```js
@@ -407,6 +625,7 @@ minioClient.statObject('mybucket', 'photo.jpg', function(err, stat) {
 Removes an object.
 
 __Parameters__
+
 | Param  |  Type | Description  |
 |---|---|---|
 |`bucketName`   |  _string_ | Name of the bucket.  |
@@ -450,7 +669,7 @@ Presigned URLs are generated for temporary download/upload access to private obj
 <a name="presignedGetObject">
 #### presignedGetObject(bucketName, objectName, expiry, cb)
 Generates a presigned URL for HTTP GET operations. Browsers/Mobile clients may point to this URL to directly download objects even if the bucket is private. This presigned URL can have an associated expiration time in seconds after which the URL is no longer valid. The default expiry is set to 7 days.
- 
+
 __Parameters__
 
 
@@ -474,7 +693,7 @@ minioClient.presignedGetObject('mybucket', 'hello.txt', 24*60*60, function(err, 
 <a name="presignedPutObject">
 #### presignedPutObject(bucketName, objectName, expiry)
 Generates a presigned URL for HTTP PUT operations. Browsers/Mobile clients may point to this URL to upload objects directly to a bucket even if it is private.  This presigned URL can have an associated expiration time in seconds after which the URL is no longer valid. The default expiry is set to 7 days.
- 
+
 
 __Parameters__
 
@@ -496,7 +715,7 @@ minioClient.presignedPutObject('mybucket', 'hello.txt', 24*60*60, function(err, 
 ---------------------------------------
 <a name="presignedPostPolicy">
 #### presignedPostPolicy
-Allows setting policy conditions to a presigned URL for POST operations. Policies such as bucket name to receive object uploads, key name prefixes, expiry policy may be set. 
+Allows setting policy conditions to a presigned URL for POST operations. Policies such as bucket name to receive object uploads, key name prefixes, expiry policy may be set.
 
 Create policy:
 ```js
