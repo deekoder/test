@@ -66,7 +66,7 @@ __Parameters__
             </td>
             <td>
             endPoint is an URL, domain name, IPv4 or IPv6 address.
-Valid endpoints:
+<br/>Valid endpoints:
                 <ul>
                     <li>https://s3.amazonaws.com</li>
                     <li>https://s3.amazonaws.com/</li>
