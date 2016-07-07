@@ -130,9 +130,9 @@ __Parameters__
 
 |Return   |Type   |Description   |
 |---|---|---|
-|bucketList   |function   |List of all buckets. |
-|bucket_name   |string   |Bucket name. |
-|bucket.creation_date |time   |Time: date when bucket was created. |
+|``bucketList``   |*function*   |List of all buckets. |
+|``bucket_name``   |*string*   |Bucket name. |
+|``bucket.creation_date`` |*time*   |Time: date when bucket was created. |
 
 __Example__
 ```py
@@ -149,7 +149,7 @@ __Parameters__
 
 |Param   |Type   |Description   |
 |---|---|---|
-|bucket_name   |string   |Name of the bucket. |
+|``bucket_name``   |*string*   |Name of the bucket. |
 
 __Example__
 
@@ -168,7 +168,7 @@ __Parameters__
 
 |Param   |Type   |Description   |
 |---|---|---|
-|bucket_name   |string   |Name of the bucket. |
+|``bucket_name``   |*string*   |Name of the bucket. |
 
 __Example__
 ```py
@@ -408,6 +408,7 @@ except ResponseError as err:
 Uploads contents from a file to objectName. 
 
 __Parameters__
+
 |Param   |Type   |Description   |
 |---|---|---|
 |``bucket_name``   |*string*   |Name of the bucket.   |
