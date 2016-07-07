@@ -102,7 +102,7 @@ __Parameters__
             String
             </td>
             <td>
-            endPoint is an URL, domain name, IPv4 or IPv6 address.<br/>
+            Endpoint is an URL, domain name, IPv4 or IPv6 address.<br/>
 Valid endpoints:
                 <ul>
                     <li>https://s3.amazonaws.com</li>
@@ -225,6 +225,7 @@ MinioClient s3Client = new MinioClient(HttpUrl.parse("s3.amazonaws.com"), "YOUR-
 `public void makeBucket(String bucketName)`
 
 Creates a new bucket.      
+
 [View Javadoc](http://minio.github.io/minio-java/io/minio/MinioClient.html#makeBucket-java.lang.String-)
 
 __Parameters__
@@ -283,6 +284,7 @@ try {
 `public List<Bucket> listBuckets()`
 
 Lists all buckets.
+
 [View Javadoc](http://minio.github.io/minio-java/io/minio/MinioClient.html#listBuckets--)
 
 
@@ -296,7 +298,7 @@ Lists all buckets.
     <tbody>
         <tr>
             <td>
-           List<Bucket>: List of bucket type.
+           List Bucket : List of bucket type.
             </td>
             <td>
             <ul>
@@ -310,10 +312,6 @@ Lists all buckets.
             </tr>
                </tbody>
 </table>
-
-
-
-
 
 __Example__
 ```java
@@ -333,6 +331,7 @@ try {
 `public boolean bucketExists(String bucketName)`
 
 Checks if a bucket exists.
+
 [View Javadoc](http://minio.github.io/minio-java/io/minio/MinioClient.html#bucketExists-java.lang.String-)
 
 __Parameters__
@@ -352,7 +351,7 @@ __Parameters__
     <tbody>
         <tr>
             <td>
-           None
+           boolean: true if the bucket exists
             </td>
             <td>
             <ul>
@@ -391,6 +390,7 @@ try {
 `public void removeBucket(String bucketName)`
 
 Removes a bucket.
+
 [View Javadoc](http://minio.github.io/minio-java/io/minio/MinioClient.html#removeBucket-java.lang.String-)
  
 NOTE: -  removeBucket does not delete the objects inside the bucket. The objects need to be deleted using the removeObject API. 
@@ -452,6 +452,7 @@ try {
 `public Iterable<Result<Item>> listObjects(String bucketName, String prefix, boolean recursive)`
 
 Lists all objects in a bucket.
+
 [View Javadoc](http://minio.github.io/minio-java/io/minio/MinioClient.html#listObjects-java.lang.String-java.lang.String-boolean-)
 
 __Parameters__
@@ -493,6 +494,7 @@ try {
 `public Iterable<Result<Upload>> listIncompleteUploads(String bucketName, String prefix, boolean recursive)`
 
 Lists partially uploaded objects in a bucket.
+
 [View Javadoc](http://minio.github.io/minio-java/io/minio/MinioClient.html#listIncompleteUploads-java.lang.String-java.lang.String-boolean-)
 
 __Parameters__
@@ -534,6 +536,7 @@ try {
 `public InputStream getObject(String bucketName, String objectName, long offset)`
 
 Downloads an object as a stream.
+
 [View Javadoc](http://minio.github.io/minio-java/io/minio/MinioClient.html#getObject-java.lang.String-java.lang.String-long-)
 
 __Parameters__
@@ -553,7 +556,7 @@ __Parameters__
     <tbody>
         <tr>
             <td>
-           None
+           InputStream: InputStream containing the object data.
             </td>
             <td>
             <ul>
@@ -601,6 +604,7 @@ try {
 `public InputStream getObject(String bucketName,  String objectName, long offset, Long length)`
                                           
 Downloads the specified range bytes of an object as a stream.
+
 [View Javadoc](http://minio.github.io/minio-java/io/minio/MinioClient.html#getObject-java.lang.String-java.lang.String-long-java.lang.Long-)
 
 __Parameters__
@@ -671,6 +675,7 @@ __Example__
 `public void getObject(String bucketName, String objectName, String fileName)`
                   
 Downloads and saves the object as a file in the local filesystem.
+
 [View Javadoc](http://minio.github.io/minio-java/io/minio/MinioClient.html#getObject-java.lang.String-java.lang.String-java.lang.String-)
 
 __Parameters__
@@ -727,6 +732,7 @@ try {
 `public void putObject(String bucketName, String objectName, InputStream stream, long size, String contentType)`
                      
 Uploads an object from an InputStream.
+
 [View Javadoc](http://minio.github.io/minio-java/io/minio/MinioClient.html#putObject-java.lang.String-java.lang.String-java.io.InputStream-long-java.lang.String-)
 
 __Parameters__
@@ -861,6 +867,7 @@ try {
 *`ObjectStat statObject(String bucketName, String objectName)`*
 
 Gets metadata of an object.
+
 [View Javadoc](http://minio.github.io/minio-java/io/minio/MinioClient.html#statObject-java.lang.String-java.lang.String-)
 
 __Parameters__
@@ -916,6 +923,7 @@ try {
 `public void removeObject(String bucketName, String objectName)`
 
 Removes an object.
+
 [View Javadoc](http://minio.github.io/minio-java/io/minio/MinioClient.html#removeObject-java.lang.String-java.lang.String-)
 
 __Parameters__
@@ -970,6 +978,7 @@ try {
 `public void removeIncompleteUpload(String bucketName, String objectName)`
                                   
 Removes a partially uploaded object.  
+
 [View Javadoc](http://minio.github.io/minio-java/io/minio/MinioClient.html#removeIncompleteUpload-java.lang.String-java.lang.String-)
 
 __Parameters__
@@ -1079,6 +1088,7 @@ try {
 `public String presignedPutObject(String bucketName, String objectName, Integer expires)`
                                                               
 Generates a presigned URL for HTTP PUT operations. Browsers/Mobile clients may point to this URL to upload objects directly to a bucket even if it is private. This presigned URL can have an associated expiration time in seconds after which it is no longer operational. The default expiry is set to 7 days.
+
 [View Javadoc](http://minio.github.io/minio-java/io/minio/MinioClient.html#presignedPutObject-java.lang.String-java.lang.String-java.lang.Integer-)
 
 __Parameters__
@@ -1130,6 +1140,7 @@ try {
 `public Map<String,String> presignedPostPolicy(PostPolicy policy)`
 
 Allows setting policy conditions to a presigned URL for POST operations. Policies such as bucket name to receive object uploads, key name prefixes, expiry policy may be set.
+
 [View Javadoc](http://minio.github.io/minio-java/io/minio/MinioClient.html#presignedPostPolicy-io.minio.PostPolicy-)
 
 __Parameters__
