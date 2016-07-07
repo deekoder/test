@@ -1,3 +1,36 @@
+
+## Java specific
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Return Type	</th>
+            <th>Exceptions</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+           None
+            </td>
+            <td>
+            <ul>
+            <li>InvalidBucketNameException : upon invalid bucket name.</li>
+            <li>NoResponseException : upon no response from server.</li>
+            <li>IOException : upon connection error.</li>
+            <li>org.xmlpull.v1.XmlPullParserException : upon parsing response XML.</li>
+            <li>ErrorResponseException : upon unsuccessful execution.</li>
+            <li>InternalException : upon internal library error.</li>
+            </ul>
+            </td>
+            </tr>
+               </tbody>
+</table>
+
+
+
 #another sample
 
 <table>
