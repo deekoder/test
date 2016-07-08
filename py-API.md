@@ -27,7 +27,7 @@ s3Client = Minio('s3.amazonaws.com',
 
 
 |Bucket operations | Object operations| Presigned operations |
-|---|---|---|
+|:---|:---|:---|
 | [`make_bucket`](#make_bucket)  | [`get_object`](#get_object)  | [`presigned_get_object`](#presigned_get_object)  |
 |[`list_buckets`](#list_buckets)   | [`put_object`](#put_object)  | [`presigned_put_object`](#presigned_put_object)  |
 | [`bucket_exists`](#bucket_exists)  |[`stat_object`](#stat_object)   |[`presigned_post_policy`](#presigned_post_policy)   |
@@ -50,7 +50,7 @@ s3Client = Minio('s3.amazonaws.com',
 __Parameters__
 
 
-| Param  |  Type | Description  |
+| :Param  |  :Type | :Description  |
 |---|---|---|
 | `endpoint`  | _string_  | S3 object storage endpoint.  |
 | `access_key`  | _string_  | Access key for the object storage endpoint. (Optional if you need anonymous access).  |
@@ -187,7 +187,7 @@ __Parameters__
 |---|---|---|
 |``bucket_name``   |*string*   | Name of the bucket.  |
 |``objectPrefix``   | *string*   |The prefix of the objects that should be listed. |
-|``recursive``   | *bool*   |``True`` indicates recursive style listing and ``False`` indicates directory style listing delimited by '/'. Optional default is False.   |
+|``recursive``   | *bool*   |``True`` indicates recursive style listing and ``False`` indicates directory style listing delimited by '/'. Optional default is ``False``.   |
 
 __Return Value__
 
@@ -375,7 +375,7 @@ __Parameters__
 |``object_name``   |*string*    |Name of the object.   |
 |``data``   |*io.IOBase*   |Any python object implementing io.IOBase. |
 |``length``   |*int*   |Total length of object.   |
-|``content_type``   |*string* | Content type of the object. (optional, defaults to 'application/octet-stream').   |
+|``content_type``   |*string* | Content type of the object. (optional, defaults to '``application/octet-stream``').   |
 
 __Example__
 
@@ -412,7 +412,7 @@ __Parameters__
 |``bucket_name``   |*string*   |Name of the bucket.   |
 |``object_name``   |*string*    |Name of the object.   |
 |``file_path``   |*string*   |Path on the local filesystem to which the object data will be written. |
-|``content_type``   |*string* | Content type of the object. (optional, defaults to 'application/octet-stream').   |
+|``content_type``   |*string* | Content type of the object. (optional, defaults to '``application/octet-stream``').   |
 
 __Example__
 
