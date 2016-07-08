@@ -50,7 +50,7 @@ s3Client = Minio('s3.amazonaws.com',
 __Parameters__
 
 
-| :Param  |  :Type | :Description  |
+| :Param  | :Type | :Description  |
 |---|---|---|
 | `endpoint`  | _string_  | S3 object storage endpoint.  |
 | `access_key`  | _string_  | Access key for the object storage endpoint. (Optional if you need anonymous access).  |
