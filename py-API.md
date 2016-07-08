@@ -42,7 +42,6 @@ s3Client = Minio('s3.amazonaws.com',
 <a name="Minio">
 #### Minio(endpoint, access_key=None, secret_key=None, secure=True)
 
-|   |
 |---|
 | `Minio(endpoint, access_key=None, secret_key=None, secure=True)`  |
 | Initializes a new client object.  |
