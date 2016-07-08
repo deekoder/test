@@ -12,7 +12,7 @@ MinioClient s3Client = new MinioClient("https://s3.amazonaws.com", "YOUR-ACCESSK
 ```
 
 | Bucket operations |  Object operations | Presigned operations  |
-|---|---|---|
+|:--- |:--- |:--- |
 | [`makeBucket`](#makeBucket)  |[`getObject`](#getObject)   |[`presignedGetObject`](#presignedGetObject)   |
 | [`listBuckets`](#listBuckets)  | [`putObject`](#putObject)  | [`presignedPutObject`](#presignedPutObject)  |
 | [`bucketExists`](#bucketExists)  | [`statObject`](#statObject)  | [`presignedPostPolicy`](#presignedPostPolicy)  |
@@ -231,7 +231,7 @@ Creates a new bucket.
 __Parameters__
 
 |Param   | Type	  | Description  |
-|---|---|---|
+|:--- |:--- |:--- |
 | ``bucketName``  | *String*  | Name of the bucket.  |
 
 
@@ -336,7 +336,7 @@ Checks if a bucket exists.
 __Parameters__
 
 |Param   | Type	  | Description  |
-|---|---|---|
+|:--- |:--- |:--- |
 | ``bucketName``  | *String*  | Name of the bucket.  |
 
 
@@ -397,7 +397,7 @@ NOTE: -  removeBucket does not delete the objects inside the bucket. The objects
 __Parameters__
 
 |Param   | Type	  | Description  |
-|---|---|---|
+|:--- |:--- |:--- |
 | ``bucketName``  | *String*  | Name of the bucket.  |
 
 <table>
@@ -457,13 +457,13 @@ Lists all objects in a bucket.
 __Parameters__
 
 |Param   | Type	  | Description  |
-|---|---|---|
+|:--- |:--- |:--- |
 | ``bucketName``  | *String*  | Name of the bucket.  |
 | ``prefix``  | *String*  | Prefix string. List objects whose name starts with ``prefix``. |
 | ``recursive``  | *boolean*  | when false, emulates a directory structure where each listing returned is either a full object or part of the object's key up to the first '/'. All objects with the same prefix up to the first '/' will be merged into one entry. |
 
 |Return Type	  | Exceptions	  | 
-|---|---|
+|:--- |:--- |
 | ``Iterable<Result<Item>>``:an iterator of Result Items.  | *None*  |
 
 __Example__
@@ -499,13 +499,13 @@ Lists partially uploaded objects in a bucket.
 __Parameters__
 
 |Param   | Type	  | Description  |
-|---|---|---|
+|:--- |:--- |:--- |
 | ``bucketName``  | *String*  | Name of the bucket.  |
 | ``prefix``  | *String*  | Prefix string. List objects whose name starts with ``prefix``. |
 | ``recursive``  | *boolean*  | when false, emulates a directory structure where each listing returned is either a full object or part of the object's key up to the first '/'. All objects with the same prefix up to the first '/' will be merged into one entry. |
 
 |Return Type	  | Exceptions	  | 
-|---|---|
+|:--- |:--- |
 | ``Iterable<Result<Upload>>``: an iterator of Upload.  | *None*  |
 
 __Example__
@@ -541,7 +541,7 @@ Downloads an object as a stream.
 __Parameters__
 
 |Param   | Type	  | Description  |
-|---|---|---|
+|:--- |:--- |:--- |
 | ``bucketName``  | *String*  | Name of the bucket.  |
 | ``objectName``  | *String*  | Object name in the bucket. |
 
@@ -609,7 +609,7 @@ Downloads the specified range bytes of an object as a stream.
 __Parameters__
 
 |Param   | Type	  | Description  |
-|---|---|---|
+|:--- |:--- |:--- |
 | ``bucketName``  | *String*  | Name of the bucket.  |
 | ``objectName``  | *String*  | Object name in the bucket. |
 | ``offset``  | *Long*  | ``offset`` of the object from where the stream will start. |
@@ -680,7 +680,7 @@ Downloads and saves the object as a file in the local filesystem.
 __Parameters__
 
 |Param   | Type	  | Description  |
-|---|---|---|
+|:--- |:--- |:--- |
 | ``bucketName``  | *String*  | Name of the bucket.  |
 | ``objectName``  | *String*  | Object name in the bucket. |
 | ``fileName``  | *String*  | File name. |
@@ -737,7 +737,7 @@ Uploads an object from an InputStream.
 __Parameters__
 
 |Param   | Type	  | Description  |
-|---|---|---|
+|:--- |:--- |:--- |
 | ``bucketName``  | *String*  | Name of the bucket.  |
 | ``objectName``  | *String*  | Object name in the bucket. |
 | ``stream``  | *InputStream*  | stream to upload. |
@@ -817,7 +817,7 @@ Uploads contents from a file to objectName.
 __Parameters__
 
 |Param   | Type	  | Description  |
-|---|---|---|
+|:--- |:--- |:--- |
 | ``bucketName``  | *String*  | Name of the bucket.  |
 | ``objectName``  | *String*  | Object name in the bucket. |
 | ``fileName``  | *String*  | File name. |
@@ -872,7 +872,7 @@ Gets metadata of an object.
 __Parameters__
 
 |Param   | Type	  | Description  |
-|---|---|---|
+|:--- |:--- |:--- |
 | ``bucketName``  | *String*  | Name of the bucket.  |
 | ``objectName``  | *String*  | Object name in the bucket. |
 
@@ -929,7 +929,7 @@ __Parameters__
 
 
 |Param   | Type	  | Description  |
-|---|---|---|
+|:--- |:--- |:--- |
 | ``bucketName``  | *String*  | Name of the bucket.  |
 | ``objectName``  | *String*  | Object name in the bucket. |
 
@@ -984,7 +984,7 @@ __Parameters__
 
 
 |Param   | Type	  | Description  |
-|---|---|---|
+|:--- |:--- |:--- |
 | ``bucketName``  | *String*  | Name of the bucket.  |
 | ``objectName``  | *String*  | Object name in the bucket. |
 
@@ -1041,7 +1041,7 @@ Generates a presigned URL for HTTP GET operations. Browsers/Mobile clients may p
 __Parameters__
 
 |Param   | Type	  | Description  |
-|---|---|---|
+|:--- |:--- |:--- |
 | ``bucketName``  | *String*  | Name of the bucket.  |
 | ``objectName``  | *String*  | Object name in the bucket. |
 | ``expiry``  | *Integer*  | Expiry in seconds. Default expiry is set to 7 days. |
@@ -1093,7 +1093,7 @@ Generates a presigned URL for HTTP PUT operations. Browsers/Mobile clients may p
 __Parameters__
 
 |Param   | Type	  | Description  |
-|---|---|---|
+|:--- |:--- |:--- |
 | ``bucketName``  | *String*  | Name of the bucket.  |
 | ``objectName``  | *String*  | Object name in the bucket. |
 | ``expiry``  | *Integer*  | Expiry in seconds. Default expiry is set to 7 days. |
@@ -1145,7 +1145,7 @@ Allows setting policy conditions to a presigned URL for POST operations. Policie
 __Parameters__
 
 |Param   | Type	  | Description  |
-|---|---|---|
+|:--- |:--- |:--- |
 | ``policy``  | *PostPolicy*  | Post policy of an object.  |
 
 
