@@ -13,7 +13,7 @@ minioClient = Minio('play.minio.io:9000',
                   secure=True)
 ```
 
-``2.AWS S3``
+``2. AWS S3``
 ```py
 from minio import Minio
 from minio.error import ResponseError
@@ -42,6 +42,7 @@ s3Client = Minio('s3.amazonaws.com',
 <a name="Minio">
 #### Minio(endpoint, access_key=None, secret_key=None, secure=True)
 
+|   |
 |---|
 | `Minio(endpoint, access_key=None, secret_key=None, secure=True)`  |
 | Initializes a new client object.  |
@@ -68,7 +69,7 @@ minioClient = Minio('play.minio.io:9000',
                     secret_key='zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG')
 ```
 
-``2.AWS S3``
+``2. AWS S3``
 ```py
 from minio import Minio
 from minio.error import ResponseError
