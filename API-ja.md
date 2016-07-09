@@ -37,7 +37,7 @@ var s3Client = new Minio({
 |  | [`removeIncompleteUpload`](#removeIncompleteUpload)  |
 
 ## 1.  Constructor
----------------------------------------
+
 <a name="MinioClient_endpoint">
 ####  new Minio ({endPoint, port, secure, accessKey, secretKey})
 
@@ -433,7 +433,7 @@ Downloads the specified range bytes of an object as a stream.
 __Parameters__
 
 | Param  |  Type | Description  |
-|:--- |:--- |: ---|
+|:--- |:--- |:--- |
 |  `bucketName` | _string_  | Name of the bucket.  |
 | `objectName`   | _string_  | Name of the object.  |
 | `offset`   | _number_  | `offset` of the object from where the stream will start.  |
