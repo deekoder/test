@@ -28,10 +28,10 @@ SecretKey: lVbZmz4CvGkBl7JKw5icuL7RCcSvpBJTkAJTFQwz
 Region:    us-east-1
 
 Browser Access:
-   http://127.0.0.1:9000  http://192.168.1.11:9000
+  http://127.0.0.1:9000  http://192.168.1.11:9000
 
 Command-line Access: https://docs.minio.io/docs/minio-client-quickstart-guide
-  $ mc config host add myminio http://192.168.1.11:9000 USWUXHGYZQYFYFFIT3RE MOJRH0mkL1IPauahWITSVvyDrQbEEIwljvmxdq03
+  $ mc config host add myminio http://192.168.1.11:9000 MURIVYBYNPTYE7O8I779 lVbZmz4CvGkBl7JKw5icuL7RCcSvpBJTkAJTFQwz
 
 Object API (Amazon S3 compatible):
   Go:         https://docs.minio.io/docs/golang-client-quickstart-guide
