@@ -1,4 +1,4 @@
-# Running ``mc mirror`` for periodic bucket mirroring.![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/minio/minio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# Running ``mc mirror`` for periodic bucket mirroring.
 
 ![minio_MIRROR](https://raw.githubusercontent.com/koolhead17/test/c8665978efa5f1f24254bb8f5c382f0201ba1d31/docs/screenshots/image.jpeg?raw=true)
 
