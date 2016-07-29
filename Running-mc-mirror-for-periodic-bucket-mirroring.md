@@ -1,16 +1,23 @@
-# Running ``mc mirror`` for periodic bucket mirroring.
+# Running ``mc mirror`` for periodic bucket mirroring.![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/minio/minio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+![minio_MIRROR](https://raw.githubusercontent.com/koolhead17/test/c8665978efa5f1f24254bb8f5c382f0201ba1d31/docs/screenshots/image.jpeg?raw=true)
+
 In this documentation we will walk you through how to setup two minio servers & using ``cron`` for periodic mirroring of bucket from one server to another. 
 
 ## 1. Prerequisites
+
 * Download Minio server from [here](https://docs.minio.io/docs/minio)
-* Download & Install mc from [here](https://docs.minio.io/docs/minio-client-quick-start-guide)
+* Download & Install mc from [here](https://docs.minio.io/docs/minio-client-quickstart-guide)
 
 ## 2. Assumptions
+
 * Bucket name ``mybucket`` on ``192.168.1.11`` is getting mirrored to ``192.168.1.12``  using ``mc mirror`` running in backgorung with cron.
 * This example has been tested on ``Ubuntu Linux`` & uses Cron. Cron is a system utility available for Unix/Linux operating system by which you can schedule an autoamtic task on certain date/day/time. check ``man cron `` for more detials.
 
 ## 3. Setting up Minio Servers 
+
 ### A. Setting up minio server on 192.168.1.11
+
 ```sh
 $ ./minio server minio1-data/
 
@@ -31,15 +38,23 @@ To configure Minio Client:
 
 ```
 * Adding ``minio1`` mc alias:
+
 ```sh
+
 $ ./mc config host add minio1 http://192.168.1.11:9000 MURIVYBYNPTYE7O8I779 lVbZmz4CvGkBl7JKw5icuL7RCcSvpBJTkAJTFQwz
+
 ```
 * Create a bucket name ``mybucket`` and add object name ``myfile.txt`` to it.
-```
+
+```sh
+
 $ ./mc mb minio1/mybucket
 $ ./mc cp myfile.txt minio1/mybucket
+
 ```
+
 ### B. Setting up second minio server on 192.168.1.12
+
 ```sh
 $ ./minio server minio2-data/
 
@@ -59,36 +74,54 @@ To configure Minio Client:
     $ ./mc config host add myminio http://127.0.0.1:9000 YRDRWWQLEWS9OBJ31GZ2 y2sSWzx5ytwvkELcxOuSaQ8n3doNqoIilRpb5Kjj
 ```
 * Adding ``minio2`` mc alias:
+
 ```sh
+
 $ ./mc config host add minio2 http://192.168.1.12:9000 YRDRWWQLEWS9OBJ31GZ2 y2sSWzx5ytwvkELcxOuSaQ8n3doNqoIilRpb5Kjj
 ```
 * Create a bucket name ``mybucket``
-```
+
+```sh
+
 $ ./mc mb minio1/mybucket
 ```
+
 ### C. Add mc alias entry for the second server in the first server
+
 * Adding second server (``192.168.1.12``) to mc's alias list in the first server(``192.168.1.11``) 
+
 ```sh
+
 $ ./mc config host add minio2 http://192.168.1.12:9000 YRDRWWQLEWS9OBJ31GZ2 y2sSWzx5ytwvkELcxOuSaQ8n3doNqoIilRpb5Kjj
 ```
 
 ## 4. Setting crontab 
 * We are going to add crontab configuration on ``192.168.1.11``.
+
 ### A. Script
+
 ```sh
+
 #!/bin/bash
 minio1="minio1/mybucket"
 minio2="minio2/mybucket"
 MC_PATH="/home/minio/mc"
 $MC_PATH --quiet mirror $minio1 $minio2
+
 ```
 ### B. Setting at Cron
+
 * Setting executable permissions for the script 
-```
+
+```sh
+
 $ chmod 755 /home/minio/minio.sh
 ```
+
 * Add entry to the crontab file
+
 ```sh
+
 $ crontab -e
 */30 * * * * /home/minio/minio.sh 
 ```
