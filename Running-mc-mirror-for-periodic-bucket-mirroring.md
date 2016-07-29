@@ -1,6 +1,6 @@
 # Running ``mc mirror`` for periodic bucket mirroring. [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/minio/minio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-![minio_MIRROR](https://raw.githubusercontent.com/koolhead17/test/c8665978efa5f1f24254bb8f5c382f0201ba1d31/docs/screenshots/image.jpeg?raw=true)
+![minio_MIRROR](https://github.com/koolhead17/test/blob/master/docs/screenshots/image.jpeg?raw=true)
 
 In this documentation we will walk you through how to setup two minio servers & using ``cron`` for periodic mirroring of bucket from one server to another. 
 
