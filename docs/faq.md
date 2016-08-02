@@ -93,7 +93,6 @@ Yes you can, use `` $ mc ls -I`` command with bucketname you would like to inves
 
 
 ### Minio Server FAQ
-
 ##### What is Minio?
 
 #####  What is Microstorage architecture?
