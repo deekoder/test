@@ -146,6 +146,10 @@ No, we do not.
 
 ## Extra added questions on minio server >>>>
 
+##### Does Minio server supports Amazon bucket notification service?
+We are supporting Setbucktnotification and Getbucketnotification 
+
+
 ##### Is Minio recommended for hosting static website?
 No, Minio is not recommended for static website.
 
