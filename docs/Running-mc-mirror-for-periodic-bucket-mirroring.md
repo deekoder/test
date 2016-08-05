@@ -61,7 +61,7 @@ $ ./mc config host add minio2 http://192.168.1.12:9000 YRDRWWQLEWS9OBJ31GZ2 y2sS
 
 **Create bucket**
 
-We are creating destination bucket ``mbucket`` on ``minio2`` and adding ``minio2`` alias, this will be used to mirror data directory of ``minio1``. 
+We are creating destination bucket ``mbucket`` on ``minio2`` and adding ``minio2`` alias. The bucket ``mbucket`` will be used to mirror data directory of ``minio1``. 
 
 ```sh
 $ ./mc mb minio1/mbucket
@@ -72,7 +72,7 @@ $ ./mc config host add minio2 http://192.168.1.12:9000 YRDRWWQLEWS9OBJ31GZ2 y2sS
 
 ```
 
-## 4. Setting crontab
+## 4. Settup crontab
 Cron is a Unix/Linux system utility by which you can schedule a task process for particular duration, we have tested this setup on Ubuntu Linux.
 
 
@@ -90,7 +90,6 @@ $MC_PATH --quiet  mirror --force $minio1 $minio2
 
 ```
 
-
 Setup executable permissions on script so that cron can execute in every 30 minutes.
 
 ```sh
@@ -104,7 +103,7 @@ $ crontab -e
 ```
 
 ## mc diff
-Together with ``mc mirror`` we can also use minio client's ``mc diff`` , it lists missing objects or objects with size differences. 
+Together with ``mc mirror`` we can also use minio client's ``mc diff``, it lists missing objects or objects with size differences. 
 
 ```sh
 $ mc diff ~/minio1-data/ minio2/mbucket
