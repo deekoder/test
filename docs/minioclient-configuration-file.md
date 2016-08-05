@@ -1,9 +1,9 @@
 # Minio Client configuration Guide [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/minio/minio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-In this document we will walk through the configuration files of Minio Client.
+In this document we will walk you through the configuration files of Minio Client.
 
 ## Minio Client configuration directory
-Minio Client configurations are stored in file name ``.mc``.  It's a hidden file which resides on user's home directory.
+Minio Client configurations are stored in file name ``.mc``.  It is a hidden file which resides on user's home directory.
 
 **This how the structure of the directory looks like:**
 
@@ -15,7 +15,7 @@ $ tree ~/.mc
 └── share
 2 directories, 5 files
 ```
-Let us walk through each of these files, directories.
+### Files and directories
 
 #### ``session`` directory
 ``session`` directory keeps metadata information of all incomplete upload or mirror. You can run ``$ mc session list`` to list the same. 
@@ -61,11 +61,10 @@ $ cat config.json
 	}
 }
 ```
-Let us walk through each of these sections.
 
-``version`` : This section tells you about the version of the file.
+``version`` tells the version of the file.
 
-``hosts`` : This section stores authenctication credentials which will be used by Minio Client.
+``hosts``  stores authenctication credentials which will be used by Minio Client.
 
 #### ``config.json.old``
 This file keeps previous config file version details.
