@@ -1,4 +1,4 @@
-# Minio Server configuration Guide [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/minio/minio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# Minio Server configuration files Guide [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/minio/minio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 In this document we will walk through the configuration files of Minio Server.
 
@@ -16,7 +16,7 @@ $ tree ~/.minio/
 
 1 directory, 2 files
 ```
-Let us walk through each of these files, directories.
+### Files and directories.
 
 ##### ``certs`` directory 
 ``certs`` directory stores key & cert information, which are needed to run Minio in ``HTTPS``. You can read more on running Minio with ``HTTPS`` with Let's Encrypt cert with Concert [here](https://docs.minio.io/docs/generate-let-s-encypt-certificate-using-concert-for-minio) 
@@ -78,15 +78,14 @@ $cat config.json
 	}
 } 
 ```
-Let us walk through each of these sections.
 
-``version`` : This section tells you about the version of the file.
+``version``  talks about the version of the file.
 
-``credential`` : This section stores authenctication credentials for your Minio server. If you want to provide your own custome access/secret key you will have to modify it and run Minio.
+``credential`` stores authenctication credentials for your Minio server. If you want to provide your own custom access/secret key you will have to modify it and run Minio.
 
 ``region``: We are following S3 specs and hence the region.
 
-``logger``: We have introduced new notification features in Minio, stay tuned will talk about this in saperate post.
+``logger``: We have introduced new notification feature in Minio, stay tuned will talk about this in saperate post.
 
 ##### ``config.json.old``
 This file keeps previous config file version details.
