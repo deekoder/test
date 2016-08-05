@@ -1,20 +1,22 @@
-# Running Minio with Cyberduck browser.  [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/minio/minio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# How to use Cyberduck with Minio
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/minio/minio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
-In this document we will illustrate how to carry out basic operations on Minio using Cyberduck, Open Source file browser.We will install Cyberduck on Mac & use Minio Play Server for this.
+In this document you will learn how to carry out basic operations on Minio using Cyberduck. Cyberduck is an open source client for FTP and SFTP, WebDAV, OpenStack Swift, and Amazon S3, available for Mac OS X and Windows (as of version 4.0) licensed under the GPL. 
 
-## Set up and Installation
+##Prerequisites
+* Cyberduck is installed and running. If not please download Cyberduck from [here](https://cyberduck.io/). Since Minio is Amazon S3 API compaitble you will need to download [Generic S3 Profiles](https://trac.cyberduck.io/wiki/help/en/howto/s3#HTTPS). We are downloading ``HTTPS`` profile for this setup.
 
-You can download Cyberduck from [here](https://cyberduck.io/) followed by downloading  Generic S3 Profiles [here](https://trac.cyberduck.io/wiki/help/en/howto/s3#HTTPS). We are downloading ``HTTPS`` profile for this setup.
+* Minio Server is running at https://play.minio.io:9000. Minio Play is a hosted service by Minio. Feel free to use this service for testing and development. 
 
-## Adding Play server authentication in cyberduck
+###1. Add Play server authentication in cyberduck
 
 Click open connection, select ``HTTPS``
 
 ![I_IMAGE](https://github.com/koolhead17/test/blob/master/docs/screenshots/cyberduck/defaultdashboard.png?raw=true)
 
 
- Replace the existing ``AWS S3`` detials with  ``play server`` credntials to:
+###2. Replace the existing ``AWS S3`` detials with  ``play server`` credntials to:
 
 ```sh
 Server: ``play.minio.io``
@@ -24,37 +26,38 @@ Secret Access Key: ``zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG``
 ```
 ![MINIO_DASH](https://github.com/koolhead17/test/blob/master/docs/screenshots/cyberduck/connecttominio.png?raw=true)
 
-and click to ``connect`` tab. After the conenction establishment you can explore below listed operations.
+###3. Click on the ``connect`` tab to establish connection.
+Once the connected is established you can explore the following operations.
 
-### Bucket listing 
+##### Bucket listing 
 
 ![B_LISTING](https://github.com/koolhead17/test/blob/master/docs/screenshots/cyberduck/allbuckets.png?raw=true)
 
-### Upload Object
+##### Upload Object
 
 ![U_OBJECT](https://github.com/koolhead17/test/blob/master/docs/screenshots/cyberduck/uploadobject.png?raw=true)
 
-### Download Object
+##### Download Object
 
 ![D_OBJECT](https://github.com/koolhead17/test/blob/master/docs/screenshots/cyberduck/downloadobject.png?raw=true)
 
-### Delete Object
+##### Delete Object
 
 ![D_OBJECT](https://github.com/koolhead17/test/blob/master/docs/screenshots/cyberduck/deleteobject.png?raw=true)
 
-### Download bucket
+##### Download bucket
 
 ![D_BUCKET](https://github.com/koolhead17/test/blob/master/docs/screenshots/cyberduck/downloadbucket.png?raw=true)
 
-### Mirror Bucket
+##### Mirror Bucket
 
 ![M_BUCKET](https://github.com/koolhead17/test/blob/master/docs/screenshots/cyberduck/mirror.png?raw=true)
 
-### Delete Bucket
+##### Delete Bucket
 
 ![D_BUCKET](https://github.com/koolhead17/test/blob/master/docs/screenshots/cyberduck/deletebucket.png?raw=true)
 
-## Explore Further
+###3.Explore Further
 * [Minio Client complete guide](https://docs.minio.io/docs/minio-client-complete-guide)
 * [Cyberduck project homepage](https://cyberduck.io)
 
