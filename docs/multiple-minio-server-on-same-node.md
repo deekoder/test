@@ -1,4 +1,4 @@
-# How to run multiple Minio server instance on single machine. [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/minio/minio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# How to run multiple Minio server instances on single machine. [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/minio/minio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ![minio_MULTISERVER](https://github.com/koolhead17/test/blob/master/docs/screenshots/multiport.jpeg?raw=true)  
 
