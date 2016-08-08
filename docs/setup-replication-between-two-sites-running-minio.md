@@ -1,6 +1,8 @@
 # How to use ``mc mirror`` to setup replication between two sites running Minio. [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/minio/minio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-![minio_MIRROR](https://raw.githubusercontent.com/koolhead17/test/master/docs/screenshots/miniomirror.jpeg?raw=true)
+![minio_MIRROR](https://raw.githubusercontent.com/minio/blob/master/docs/screenshots/miniomirror.jpeg?raw=true)
+
+
 
 In this document we will illustrate how to set up replication between two Minio servers, `minio1` and `minio2` running on ``192.168.1.11`` and ``192.168.1.12`` respectively. We will mirror the data directory on `minio1` to the bucket on `minio2`.
 
@@ -72,14 +74,16 @@ $ ./mc config host add minio2 http://192.168.1.12:9000 YRDRWWQLEWS9OBJ31GZ2 y2sS
 
 ```
 
-## 4. Settup crontab
+## 4. Setup crontab
 Cron is a Unix/Linux system utility by which you can schedule a task process for particular duration, we have tested this setup on Ubuntu Linux.
 
 
 ### Script
+
 Add crontab configuration on `minio1` providing path of data directory, ``minio1-data``. 
 
- ``--force`` option with ``mc mirror`` is used to keep the contents latest in destination.  
+``--force`` option with ``mc mirror``  overwrites the destination contents, this would keep your contents in sync..  
+
 ```sh
 
 #!/bin/bash
@@ -90,28 +94,22 @@ $MC_PATH --quiet  mirror --force $minio1 $minio2
 
 ```
 
-Setup executable permissions on script so that cron can execute in every 30 minutes.
+Set executable permissions on the script before adding a cron entry.
 
 ```sh
 
 $ chmod 755 /home/minio/minio.sh
 ```
+
+Set a new cron entry to run ``minio.sh`` script once every 30mins
+
 ```sh
 
 $ crontab -e
 */30 * * * * /home/minio/minio.sh 
 ```
 
-## mc diff
-Together with ``mc mirror`` we can also use minio client's ``mc diff``, it lists missing objects or objects with size differences. 
-
-```sh
-$ mc diff ~/minio1-data/ minio2/mbucket
-‘http://192.168.1.12:9000/mbucket/bucket1/setbucketpolicy.go’ - only in second.
-```
-You can run `` mc diff --help`` on your terminal for more details.
-
-Note: We are going to inrtoduce continuous replication feature in `mc mirror` which will enable the sites to be in sync without having the need to set up cron job.
+Note: We are going to introduce continuous replication feature in `mc mirror` which will enable the sites to be in sync without having the need to setup cron job.
 
 # Explore Further
 * [Minio Quickstart Guide](https://docs.minio.io/docs/minio-quickstart-guide)

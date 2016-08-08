@@ -25,9 +25,10 @@ $ tree ~/.minio/
 config.json is the configuration file for Minio, it gets generated after you install and start Minio.
 
 ```sh
-$cat config.json
+
+$ cat config.json
 {
-	"version": "5",
+	"version": "6",
 	"credential": {
 		"accessKey": "YI7S1CKXB76RGOGT6R8W",
 		"secretKey": "FJ9PWUVNXGPfiI72WMRFepN3LsFgW3MjsxSALroV"
@@ -47,45 +48,55 @@ $cat config.json
 			"enable": false,
 			"address": "",
 			"level": "debug"
-		},
+		}
+	},
+	"notify": {
 		"amqp": {
-			"enable": false,
-			"level": "",
-			"url": "",
-			"exchange": "",
-			"routineKey": "",
-			"exchangeType": "",
-			"mandatory": false,
-			"immediate": false,
-			"durable": false,
-			"internal": false,
-			"noWait": false,
-			"autoDeleted": false
+			"1": {
+				"enable": false,
+				"url": "",
+				"exchange": "",
+				"routineKey": "",
+				"exchangeType": "",
+				"mandatory": false,
+				"immediate": false,
+				"durable": false,
+				"internal": false,
+				"noWait": false,
+				"autoDeleted": false
+			}
 		},
 		"elasticsearch": {
-			"enable": false,
-			"level": "",
-			"url": "",
-			"index": ""
+			"1": {
+				"enable": false,
+				"url": "",
+				"index": ""
+			}
 		},
 		"redis": {
-			"enable": false,
-			"level": "",
-			"address": "",
-			"password": "",
-			"key": ""
+			"1": {
+				"enable": false,
+				"address": "",
+				"password": "",
+				"key": ""
+			}
 		}
 	}
-} 
+}
+
+
 ```
 
-``version``  talks about the version of the file.
+``version`` :  Represents `version` number of current configuration file.
 
-``credential`` stores authenctication credentials for your Minio server. If you want to provide your own custom access/secret key you will have to modify it and run Minio.
+``credential`` :  Represents authentication credentials for the server, value is automatically generated upon first server start.
 
-``region``: We are following S3 specs and hence the region.
+``region`` :  Represents deployment region for the server,  value defaults to `us-east-1`. 
 
-``logger``: We have introduced new notification feature in Minio, stay tuned will talk about this in saperate post.
+``logger `` : Represents various logging types supported for server error logs, console logger is enabled by default.
+
+``notify``:  Represents various notification types supported. These notification types should be configured prior to using bucket
+
 
 ##### ``config.json.old``
 This file keeps previous config file version details.
