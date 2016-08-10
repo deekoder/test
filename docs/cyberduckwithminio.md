@@ -1,4 +1,4 @@
-# How to use Cyberduck with Minio[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/minio/minio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# How to use Cyberduck with Minio [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/minio/minio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
 In this document you will learn how to carry out basic operations on Minio using Cyberduck. Cyberduck is an open source client for FTP and SFTP, WebDAV, OpenStack Swift, and Amazon S3, available for Mac OS X and Windows (as of version 4.0) licensed under the GPL. 
@@ -8,7 +8,7 @@ In this document you will learn how to carry out basic operations on Minio using
 
 * Minio Server is running on localhost on port 9000 in ``HTTP``. 
 
-_NOTE:_ You can also run ``HTTPS`` with using Cyberduck [Generic S3 Profiles](https://trac.cyberduck.io/wiki/help/en/howto/s3#HTTPS) 
+_NOTE:_ You can also run Minio in ``HTTPS``, follow this [guide](https://docs.minio.io/docs/generate-let-s-encypt-certificate-using-concert-for-minio) along with Cyberduck HTTPS [Generic S3 Profiles](https://trac.cyberduck.io/wiki/help/en/howto/s3#HTTPS) 
 
 ###1. Add Minio authentication in cyberduck
 
