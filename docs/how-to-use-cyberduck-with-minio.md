@@ -23,9 +23,9 @@ Click open connection, select ``HTTP``
 ![MINIO_DASH](https://github.com/koolhead17/test/blob/master/docs/screenshots/cyberduck/connecttominio.jpg?raw=true)
 
 ###3. Click on the ``connect`` tab to establish connection.
-Once the connected is established you can explore the following operations.
+Once the connection is established you can explore operations listed below.
 
-##### Bucket listing 
+##### List Bucket
 
 ![B_LISTING](https://github.com/koolhead17/test/blob/master/docs/screenshots/cyberduck/allbuckets.jpg?raw=true)
 
