@@ -8,10 +8,10 @@ Minio oficial documentation is hosted at [docs.minio.io](https://www.docs.minio.
  
  ##### How can I help?
  You can contribute to Minio project in many ways:
- * ``developers`` : Fork our project on Gihub and start contributing with code. Minio is mostly written in Golang but we have our client libraries avaibale in other language like Python, Java, NodeJS as well.
+ * ``developers`` : Fork our project on Github and start contributing with code. Minio is mostly written in Golang but we have our client libraries available in other language like Python, Java, NodeJS as well.
  * ``File a bug``: Try out our software, report issues you have faced & we will be more than happy to fix it for you.
  * ``Writers``: Give us your feedback on our  [docs.minio.io](https://www.docs.minio.io) also write about us in popular posts, blogs or on your personal blog about us.
- * ``Translators``: Love Minio, why not helping us with writing our documenats in your local language.
+ * ``Translators``: Love Minio, why not helping us with writing our documents in your local language.
  * ``Local Leaders``: We would love to have you speak, present, talk in behalf of Minio community at regional conferences & events. You need to have great understanding of our project.
  
 ##### Can I make a donation to Minio project?
@@ -118,7 +118,7 @@ It will be same as AWS S3, 5TB
 Minio's is built to handle your Object Storage infrastructure in microstorage architecture which is key to fast pace application development. Swift is also an object storage.. it is uses its own Swift API (not S3).
 
 ##### How does it compare to Red Hat GlusterFS?
-Minio is Object Storage while GlusterFS is block storage, they are both supposed to solve two different storage oppertunities. 
+Minio is Object Storage while GlusterFS is block storage, they are both supposed to solve two different storage opportunities. 
 
 ##### How does it compare to Red Hat Ceph?
 Ceph wants to be file, block and object. We will be only object and S3 only not even Swift API. Minio is S3 API v4 signature. Latest having a simpler objective allows Minio to be simple. simplicity is key to scalability
@@ -127,7 +127,7 @@ Another confusion, Industry has is.. definition of Object storage from Panasas, 
 ##### What operating systems and architecture does Minio support?
 
 ##### How does it compare to Amazon S3, Google Cloud Storage and Microsoft Blob Storage?
-Minio provides most of the features provided by these Object storage providers &  it supposts Amamzon S3 version4 signatures.One can run his/her own buisness using Minio and compete against the above mentioned providers. 
+Minio provides most of the features provided by these Object storage providers &  it supposts Amamzon S3 version4 signatures.One can run his/her own business using Minio and compete against the above mentioned providers. 
 
 ##### Is there a hosted version of Minio server like Amazon S3 service?
 No
@@ -137,7 +137,7 @@ Yes, you can. All you need is pull our Minio Server image from Docker hub.
 ```
 $ docker pull minio/minio
 ```
-Head over to our Minio-Docker [doc](https://docs.minio.io/docs/minio-docker-container) for more detials.
+Head over to our Minio-Docker [doc](https://docs.minio.io/docs/minio-docker-container) for more details.
 
 ##### Is there a recommended hardware configuration for Minio server?
 
@@ -167,7 +167,7 @@ Some key points:
 Yes, we provide minio.shasum for all the packages, check  [https://dl.minio.io/server/minio/release/](https://dl.minio.io/server/minio/release/) for details. 
 
 ##### Can i import minio server access and secret key in my environment variable?
-Yes, you can with below mentioned steps, just by adding minio server credetials 
+Yes, you can with below mentioned steps, just by adding minio server credentials 
 ```
 export MINIO_ACCESS_KEY=""
 export MINIO_SECRET_KEY=""
