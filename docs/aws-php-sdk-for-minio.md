@@ -1,4 +1,4 @@
-# AWS PHP SDK for Minio Server [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/minio/minio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# How to use AWS SDK for PHP with Minio Server [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/minio/minio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 `aws-sdk-php` is the official AWS SDK for the PHP programming language. In this recipe we will learn how to use `aws-sdk-php` with Minio server.
 
@@ -16,7 +16,7 @@ Install `aws-sdk-php` from AWS SDK for PHP official docs [here](https://docs.aws
 
 Please replace ``endpoint``,``credentials``, ``Bucket`` with your local setup in this ``example.php`` file.
 
-List all buckets on minio server using aws-sdk-go.
+List all buckets on minio server using aws-sdk-php.
 
 
 ```php
