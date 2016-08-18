@@ -26,4 +26,4 @@ rubys3_client.get_object(
          response_target: 'download_testobject'
 )
 
-print "Downloaded 'testobject' as  'download_testobject\n' "
+print "Downloaded 'testobject' as  'download_testobject'."
