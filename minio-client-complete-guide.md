@@ -255,6 +255,29 @@ Use this option to set a custom config path.
 | [**watch** - Watch for events](#watch)   | [**events** - Manage events on your buckets](#events)   |   | 
 | [**update** - Manage software updates](#update)  | [**version** - Show version](#version)  |   |
 
+
+**OR**
+
+| ``mc`` commands with short description  |   
+ |:---|
+ |[**ls** - List buckets and objects](#ls)   |
+ |[**mb** - Make a bucket](#mb)   |
+ |[**cat** - Concatenate an object](#cat)  |
+ |[**cp** - Copy objects](#cp)   |
+ | [**rm** - Remove objects](#rm)  | 
+ | [**pipe** - Pipe to an object](#pipe)  |
+ | [**share** - Share access](#share)  |
+ |[**mirror** - Mirror buckets](#mirror)| 
+ |[**diff** - Diff buckets](#diff)   |
+ |[**policy** - Set public policy on bucket or prefix](#policy)| 
+ |[**session** - Manage saved sessions](#session) | 
+ | [**config** - Manage config file](#config)  |
+ | [**watch** - Watch for events](#watch)| 
+ | [**events** - Manage events on your buckets](#events) | 
+ | [**update** - Manage software updates](#update)| 
+ | [**version** - Show version](#version)  |   |
+
+
 ###  Command `ls` - List Objects
 
 `ls` command lists files, objects and objects. Use `--incomplete` flag to list partially copied content.
