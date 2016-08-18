@@ -1,7 +1,7 @@
-# How to use mc mirror continous replication between  Minio Servers [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/minio/minio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# How to use mc mirror continuous replication between  Minio Servers [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/minio/minio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
-In this recipe we will learn how to use ``mc mirror`` continous replication feature.
+In this recipe we will learn how to use ``mc mirror`` continuous replication feature.
 
 ## 1. Prerequisites
 
@@ -18,7 +18,7 @@ $ mc config host list
 m1: http://10.1.10.225:9000 <-  H5K8172RVM311Q2XFEHX |  5bRnl3DGhNM+fRBMxOii11k8iT78cNSIfoqnJfwC |  S3v4
 m2: http://10.1.10.225:9004 <-  G4HLX27DHPYR6XAADUSA |  w+RQYkvqTPByVVaOFFQP70dA6HbpgYOBEvW/0Id+ |  S3v4
 ```
-``mc mirror`` continous replication will happen from Minio Server ``m1`` from bucket name ``bucket1`` to ``m2`` Minio server on bucket name ``bucket1``
+``mc mirror`` continuous replication will happen from Minio Server ``m1`` from bucket name ``bucket1`` to ``m2`` Minio server on bucket name ``bucket1``
 
 Setting up contnous replication between the buckets on two Minio servers.
 
@@ -40,4 +40,4 @@ Check if the replication has happned on m2/bucket1 or not?
 $ mc ls m2/bucket1
 [2016-08-18 10:57:50 PDT]     7B README.md
 ```
-**NOTE:** We added an Object README.md on Minio server ``m1`` and with ``mc mirror`` continous replication the object got copied to ``m2``
+**NOTE:** We added an Object README.md on Minio server ``m1`` and with ``mc mirror`` continuous replication the object got copied to ``m2``
