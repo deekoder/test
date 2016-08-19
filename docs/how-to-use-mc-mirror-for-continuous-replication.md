@@ -1,4 +1,4 @@
-# How to use ``mc mirror`` to setup replication between two sites running Minio. [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/minio/minio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# Replicated Minio setup [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/minio/minio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 In this recipe we will learn how to use ``mc mirror`` continuous replication feature. We are using ``--watch`` feature of ``mc mirror``, it watches for new objects and uploads them. We are using ``--force`` ``--remove`` so the replication keeps exact same copy of source to destination.  This is way simpler and cleaner approach when it comes to Minio compared to using ``cron``
 
@@ -86,7 +86,8 @@ $ mc ls s3/kline
 ## Continuously mirror a local folder recursively to Minio
 
 ![minio_M3](https://github.com/koolhead17/test/blob/master/docs/screenshots/c-localtominio.jpeg?raw=true)
-In this setup, we have Minio Server running with Alias ``m1`` and bucket name ``backupbucket`` and it will do replication of ``/var/lib/backups`` directory located on my local machine.
+
+In this setup, we have Minio Server running with alias ``m1`` and bucket name ``backupbucket`` and it will do replication of ``/var/lib/backups`` directory located on my local machine.
 
 ```sh
 $ mc config host list
