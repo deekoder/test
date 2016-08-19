@@ -1,7 +1,6 @@
-# How to use mc mirror for continuous replication [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/minio/minio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# How to use ``mc mirror`` to setup replication between two sites running Minio. [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/minio/minio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-
-In this recipe we will learn how to use ``mc mirror`` continuous replication feature.
+In this recipe we will learn how to use ``mc mirror`` continuous replication feature. We are using ``--watch`` feature of ``mc mirror``, it watches for new objects and uploads them. We are using ``--force`` ``--remove`` so the replication keeps exact same copy of source to destination.  This is way simpler and cleaner approach when it comes to Minio compared to using ``cron``
 
 ## 1. Prerequisites
 
@@ -12,6 +11,8 @@ In this recipe we will learn how to use ``mc mirror`` continuous replication fea
 ## 2. Configuration 
 
 ## Replication between two Minio Servers.
+
+![minio_M1](https://github.com/koolhead17/test/blob/master/docs/screenshots/c-miniotominio.jpeg?raw=true)
 
 In this setup, we have Minio Server running with Alias ``m1`` and ``m2``
 
@@ -45,6 +46,8 @@ $ mc ls m2/bucket1
 **NOTE:** We added an Object README.md on Minio server ``m1`` and with ``mc mirror`` continuous replication the object got copied to ``m2`` which was empty earlier.
 
 ## Replication between  Minio Server and AWS S3.
+
+![minio_M2](https://github.com/koolhead17/test/blob/master/docs/screenshots/c-miniotos3.jpeg?raw=true)
 
 In this setup, we have Minio Server running with Alias ``m1`` and AWS S3 with ``s3``
 
@@ -80,4 +83,32 @@ $ mc ls s3/kline
 * We added an Object README.md on Minio server ``m1`` and with ``mc mirror`` continuous replication the object got copied to AWS S3 bucket `kline`` which was empty earlier.
 * Due to limitations from AWS S3, this operation  will not work from AWS S3 to Minio server.
 
+## Continuously mirror a local folder recursively to Minio
 
+![minio_M3](https://github.com/koolhead17/test/blob/master/docs/screenshots/c-localtominio.jpeg?raw=true)
+In this setup, we have Minio Server running with Alias ``m1`` and bucket name ``backupbucket`` and it will do replication of ``/var/lib/backups`` directory located on my local machine.
+
+```sh
+$ mc config host list
+m1: http://10.1.10.225:9000 <-  H5K8172RVM311Q2XFEHX |  5bRnl3DGhNM+fRBMxOii11k8iT78cNSIfoqnJfwC |  S3v4
+```
+
+Current content of ``/home/supernova/backups``
+
+```sh
+$ mc ls /home/supernova/backups
+[2016-08-09 23:13:17 PDT] 475KiB chain.pdf
+[2016-08-09 12:05:49 PDT] 656KiB setup.deb
+```
+Run the continuous replication.
+```sh
+$ mc mirror --force --remove --watch /home/supernova/backups m1/backupbucket
+```
+**Note:** You can run this command can run as background process.
+
+Check the content of ``backupbucket`` running on Minio Server ``m1``
+```sh
+$ mc ls m1/backupbucket
+[2016-08-18 18:15:01 PDT] 475KiB chain.pdf
+[2016-08-18 18:15:04 PDT] 656KiB setup.deb
+```
