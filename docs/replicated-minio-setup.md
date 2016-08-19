@@ -12,7 +12,7 @@ In this recipe we will learn how to use ``mc mirror`` continuous replication fea
 
 ## Replication between two Minio Servers.
 
-![minio_M1](https://github.com/koolhead17/test/blob/master/docs/screenshots/c-miniotominio.jpeg?raw=true)
+![minio_M1](https://github.com/koolhead17/test/blob/master/docs/screenshots/c-miniotominio.png?raw=true)
 
 In this setup, we have Minio Server running with Alias ``m1`` and ``m2``
 
@@ -47,7 +47,7 @@ $ mc ls m2/bucket1
 
 ## Replication between  Minio Server and AWS S3.
 
-![minio_M2](https://github.com/koolhead17/test/blob/master/docs/screenshots/c-miniotos3.jpeg?raw=true)
+![minio_M2](https://github.com/koolhead17/test/blob/master/docs/screenshots/c-miniotos3.png?raw=true)
 
 In this setup, we have Minio Server running with Alias ``m1`` and AWS S3 with ``s3``
 
@@ -85,7 +85,7 @@ $ mc ls s3/kline
 
 ## Continuously mirror a local folder recursively to Minio
 
-![minio_M3](https://github.com/koolhead17/test/blob/master/docs/screenshots/c-localtominio.jpeg?raw=true)
+![minio_M3](https://github.com/koolhead17/test/blob/master/docs/screenshots/c-localtominio.png?raw=true)
 
 In this setup, we have Minio Server running with alias ``m1`` and bucket name ``backupbucket`` and it will do replication of ``/var/lib/backups`` directory located on my local machine.
 
