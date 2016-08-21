@@ -37,7 +37,15 @@ VERSION:
 ```
 
 ### Env Variables
-Setup to environment variable?
+
+#### Setting up enviornment variable.
+
+Minio provides you with enviornment variable setup, copy ``accessKey`` and ``secretKey`` from ```~/.minio/config.json` `` 
+
+```sh
+$ MINIO_ACCESS_KEY=”your-accesskey”
+$ MINIO_SECRET_KEY=”your-secretkey”  
+```
 
 ### Configuration
 Default caching disable?
