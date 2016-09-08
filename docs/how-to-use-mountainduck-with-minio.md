@@ -16,47 +16,40 @@ _NOTE:_ You can also run Minio in ``HTTPS``, follow this [guide](https://docs.mi
 
 Click on Mountain Duck icon and open the application via navigation menu. Click open connection, select ``S3(HTTP)``
 
-![I_IMAGE](https://github.com/minio/cookbook/blob/master/docs/screenshots/mountainduck/defaultdashboard.jpg?raw=true)
+![I_IMAGE](https://github.com/koolhead17/test/blob/master/docs/screenshots/mountainduck/defaultdashboard.jpg?raw=true)
 
 ### 2. Replace the existing ``AWS S3`` details with your local ``Minio`` credentials to:
 
-![MINIO_DASH](https://github.com/minio/cookbook/blob/master/docs/screenshots/mountainduck/connecttominio.jpg?raw=true)
+![MINIO_DASH](https://github.com/koolhead17/test/blob/master/docs/screenshots/mountainduck/connecttominio.jpg?raw=true)
+
+![MINIO_DASH2](https://github.com/koolhead17/test/blob/master/docs/screenshots/mountainduck/connecttominio1.jpg?raw=true)
+
 
 ### 3. Click on the ``connect`` tab to establish connection.
 
-You will be asked to connect via insecure connection since we are using HTTP, accept it. Once the connection is established you can explore operations listed below.
+You will be asked to connect via insecure connection since we are using HTTP, accept it. Once the connection is established you can explore operations listed below. 
 
 #### List Bucket
 
-![B_LISTING](https://github.com/minio/cookbook/blob/master/docs/screenshots/mountainduck/allbuckets.jpg?raw=true)
+![B_LISTING](https://github.com/koolhead17/test/blob/master/docs/screenshots/mountainduck/listbuckets.jpg?raw=true)
 
-#### Upload Object
+#### Copy Object to local file system
 
-![U_OBJECT](https://github.com/minio/cookbook/blob/master/docs/screenshots/mountainduck/uploadobject.jpg?raw=true)
+![D_OBJECT](https://github.com/koolhead17/test/blob/master/docs/screenshots/mountainduck/copyobject.jpg?raw=true)
 
-#### Download Object
+#### Delete Object 
 
-![D_OBJECT](https://github.com/minio/cookbook/blob/master/docs/screenshots/mountainduck/downloadobject.jpg?raw=true)
+![D_OBJECT](https://github.com/koolhead17/test/blob/master/docs/screenshots/mountainduck/deleteobject.jpg?raw=true)
 
-#### Delete Object
+#### Copy bucket to local file system
 
-![D_OBJECT](https://github.com/minio/cookbook/blob/master/docs/screenshots/mountainduck/deleteobject.jpg?raw=true)
-
-#### Download bucket
-
-![D_BUCKET](https://github.com/minio/cookbook/blob/master/docs/screenshots/mountainduck/downloadbucket.jpg?raw=true)
-
-#### Mirror Bucket
-
-![M_BUCKET](https://github.com/minio/cookbook/blob/master/docs/screenshots/mountainduck/mirror.jpg?raw=true)
+![D_BUCKET](https://github.com/koolhead17/test/blob/master/docs/screenshots/mountainduck/copybucket.jpg?raw=true)
 
 #### Delete Bucket
 
-![D_BUCKET](https://github.com/minio/cookbook/blob/master/docs/screenshots/mountainduck/deletebucket.jpg?raw=true)
+![D_BUCKET](https://github.com/koolhead17/test/blob/master/docs/screenshots/mountainduck/deletebucket.jpg?raw=true)
 
 ## 3. Explore Further
 
 * [Minio Client complete guide](https://docs.minio.io/docs/minio-client-complete-guide)
 * [Mountain Duck project homepage](https://mountainduck.io)
-
-
