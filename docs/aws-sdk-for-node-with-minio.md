@@ -57,4 +57,4 @@ Downloaded 'testobject' as  'download_testobject'.
 ```
 ## 5. Javascript Shopping App
 
-* [RoR Resume Uploader App](https://docs.minio.io/docs/javascript-shopping-app)
+* [Javascript Shopping App](https://docs.minio.io/docs/javascript-shopping-app)
