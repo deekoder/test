@@ -12,9 +12,9 @@ Install `aws-sdk` for Javascript from the official AWS Javascript SDK docs [here
 
 ## 3. Example
 
-Please replace ``endpoint``,``accessKeyId``, ``secretAccessKey``, ``Bucket`` and ``Object`` with your local setup in this ``example.rb`` file.
+Please replace ``endpoint``,``accessKeyId``, ``secretAccessKey``, ``Bucket`` and ``Object`` with your local setup in this ``example.js`` file.
 
-Example below shows put_object() and get_object() operations on Minio server using `aws-sdk `.
+Example below shows putObject and getObject operations on Minio server using `aws-sdk `.
 
 ```javascript
 var AWS = require('aws-sdk');
@@ -39,13 +39,20 @@ var params = {Bucket: 'testbucket', Key: 'testobject', Body: 'Hello from Minio!!
 
           console.log(err)
 
-      else       console.log("Successfully uploaded data to myBucket/myKey");
+      else       console.log("Successfully uploaded data to testbucket/testobject");
 
    });
 
-# get_object operation
+// getObject operation
 
+var params = {Bucket: 'testbucket', Key: 'testobject'};
 
+var file = require('fs').createWriteStream('/tmp/mykey');
+
+s3.getObject(params).
+on('httpData', function(chunk) { file.write(chunk); }).
+on('httpDone', function() { file.end(); }).
+send();
 
 ```
 
@@ -53,7 +60,7 @@ var params = {Bucket: 'testbucket', Key: 'testobject', Body: 'Hello from Minio!!
 
 ```sh
 $ node example.js
-Downloaded 'testobject' as  'download_testobject'.
+Successfully uploaded data to testbucket/testobject
 ```
 ## 5. Javascript Shopping App
 
