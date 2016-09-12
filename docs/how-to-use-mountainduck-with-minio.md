@@ -1,6 +1,6 @@
 # How to use Mountain Duck with Minio [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/minio/minio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-In this document you will learn how to carry out basic operations on Minio using Mountain Duck. Mountain Duck lets you mount server and cloud storage as a local disk, available for Mac OS X and Windows (as of version 1.5.5) licensed under the GPL. 
+In this recipe you will learn how to carry out basic operations on Minio using Mountain Duck. Mountain Duck lets you mount server and cloud storage as a local disk, available for Mac OS X and Windows (as of version 1.5.5) licensed under the GPL. 
 
 ## 1. Prerequisites
 
@@ -27,7 +27,7 @@ Click on Mountain Duck icon and open the application via navigation menu. Click 
 
 ### 3. Click on the ``connect`` tab to establish connection.
 
-You will be asked to connect via insecure connection since we are using HTTP, accept it. Once the connection is established you can explore operations listed below. 
+You will be asked to connect via insecure connection since we are using HTTP instead of HTTPS, accept it. Once the connection is established you can explore operations listed below. 
 
 #### List Bucket
 
