@@ -1,6 +1,6 @@
 # How to use AWS SDK for Javascript with Minio Server [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/minio/minio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-`aws-sdk` is the official AWS SDK for the Javascript programming language. In this recipe we will learn how to use `aws-sdk` for Javascript with Minio server.
+In this recipe we will learn how to use `aws-sdk` for Javascript with Minio server. `aws-sdk` is the official AWS SDK for the Javascript programming language. 
 
 ## 1. Prerequisites
 
@@ -27,27 +27,24 @@ var s3  = new AWS.S3({
           signatureVersion: 'v4'
                                 });
 
-// putObject operation
+// putObject operation.
 
 var params = {Bucket: 'testbucket', Key: 'testobject', Body: 'Hello from Minio!!'};
 
-  s3.putObject(params, function(err, data) {
-
+s3.putObject(params, function(err, data) {
       if (err)
+       console.log(err)
+      else   
+       console.log("Successfully uploaded data to testbucket/testobject");
+});
 
-          console.log(err)
-
-      else       console.log("Successfully uploaded data to testbucket/testobject");
-
-   });
-
-// getObject operation
+// getObject operation.
 
 var params = {Bucket: 'testbucket', Key: 'testobject'};
 
 var file = require('fs').createWriteStream('/tmp/mykey');
 
-s3.getObject(params).
+s3.getObject(params). 
 on('httpData', function(chunk) { file.write(chunk); }).
 on('httpDone', function() { file.end(); }).
 send();
@@ -63,3 +60,4 @@ Successfully uploaded data to testbucket/testobject
 ## 5. Explore Further
 
 * [Javascript Shopping App](https://docs.minio.io/docs/javascript-shopping-app)
+* [RoR Resume Uploader App](https://docs.minio.io/docs/ror-resume-uploader-app)
