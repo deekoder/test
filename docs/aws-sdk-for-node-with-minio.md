@@ -27,8 +27,6 @@ var s3  = new AWS.S3({
           signatureVersion: 'v4'
                                 });
 
-
-
 // putObject operation
 
 var params = {Bucket: 'testbucket', Key: 'testobject', Body: 'Hello from Minio!!'};
@@ -62,6 +60,6 @@ send();
 $ node example.js
 Successfully uploaded data to testbucket/testobject
 ```
-## 5. Javascript Shopping App
+## 5. Explore Further
 
 * [Javascript Shopping App](https://docs.minio.io/docs/javascript-shopping-app)
